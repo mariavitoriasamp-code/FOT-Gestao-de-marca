@@ -91,8 +91,9 @@
   .month-card.is-soon .arrow{ opacity:.25; border-style:dashed; }
 
   .status{ font-size:9.5px; font-weight:600; letter-spacing:.02em; text-transform:uppercase; padding:3px 8px; border-radius:4px; white-space:nowrap; }
-  .status.publicado{ background:var(--neon); color:var(--chumbo); }
-  .status.producao{ background:transparent; color:var(--muted); border:1px solid var(--line); }
+  .status.concluido{ background:var(--neon); color:var(--chumbo); }
+  .status.producao{ background:transparent; color:var(--azul); border:1px solid var(--azul); }
+  .status.embreve{ background:transparent; color:var(--muted); border:1px solid var(--line); }
 
   .footer{
     margin-top:50px; padding-top:20px; border-top:1px solid var(--line);
@@ -114,115 +115,25 @@
 
   <div class="topbar">
     <span class="wordmark">FEET OF TOMORROW</span>
-    <span>RELATÓRIOS DE MARCA</span>
+    <span>GESTÃO DE MARCA</span>
     <span class="active">AÇÕES POR MÊS</span>
     <span>2026</span>
   </div>
 
   <div class="title-block">
     <div class="kicker">Ponto de entrada · gestão de marca</div>
-    <h1>Relatórios<br><span class="accent">de Marca</span></h1>
-    <div class="title-sub">Resumo mensal das ações de marketing e comunicação da Feet Of Tomorrow. Selecione um mês para ver o relatório completo.</div>
+    <h1>Gestão<br><span class="accent">de Marca</span></h1>
+    <div class="title-sub">Planejamento e relatório mensal das ações de marketing e comunicação da Feet Of Tomorrow — o acervo vivo de cada mês da marca. Selecione um mês para acessar.</div>
   </div>
 
   <div class="section">
     <div class="eyebrow">Ações por mês · 2026</div>
     <div class="month-grid">
 
-      <a class="month-card is-soon" aria-disabled="true">
-        <div class="top-row">
-          <span class="num">01</span>
-          <span class="status producao">Em breve</span>
-        </div>
-        <div>
-          <div class="name">Janeiro</div>
-          <div class="year">2026</div>
-        </div>
-        <div class="bottom-row">
-          <span></span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <a class="month-card is-soon" aria-disabled="true">
-        <div class="top-row">
-          <span class="num">02</span>
-          <span class="status producao">Em breve</span>
-        </div>
-        <div>
-          <div class="name">Fevereiro</div>
-          <div class="year">2026</div>
-        </div>
-        <div class="bottom-row">
-          <span></span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <a class="month-card is-soon" aria-disabled="true">
-        <div class="top-row">
-          <span class="num">03</span>
-          <span class="status producao">Em breve</span>
-        </div>
-        <div>
-          <div class="name">Março</div>
-          <div class="year">2026</div>
-        </div>
-        <div class="bottom-row">
-          <span></span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <a class="month-card is-soon" aria-disabled="true">
-        <div class="top-row">
-          <span class="num">04</span>
-          <span class="status producao">Em breve</span>
-        </div>
-        <div>
-          <div class="name">Abril</div>
-          <div class="year">2026</div>
-        </div>
-        <div class="bottom-row">
-          <span></span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <a class="month-card is-soon" aria-disabled="true">
-        <div class="top-row">
-          <span class="num">05</span>
-          <span class="status producao">Em breve</span>
-        </div>
-        <div>
-          <div class="name">Maio</div>
-          <div class="year">2026</div>
-        </div>
-        <div class="bottom-row">
-          <span></span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
-      <a class="month-card is-soon" aria-disabled="true">
-        <div class="top-row">
-          <span class="num">06</span>
-          <span class="status producao">Em breve</span>
-        </div>
-        <div>
-          <div class="name">Junho</div>
-          <div class="year">2026</div>
-        </div>
-        <div class="bottom-row">
-          <span></span>
-          <span class="arrow">→</span>
-        </div>
-      </a>
-
       <a class="month-card is-available" href="./julho-2026.html">
         <div class="top-row">
           <span class="num">07</span>
-          <span class="status publicado">Disponível</span>
+          <span class="status producao">Em produção</span>
         </div>
         <div>
           <div class="name">Julho</div>
@@ -237,7 +148,7 @@
       <a class="month-card is-available" href="./agosto-2026.html">
         <div class="top-row">
           <span class="num">08</span>
-          <span class="status publicado">Disponível</span>
+          <span class="status producao">Em produção</span>
         </div>
         <div>
           <div class="name">Agosto</div>
@@ -252,7 +163,7 @@
       <a class="month-card is-soon" aria-disabled="true">
         <div class="top-row">
           <span class="num">09</span>
-          <span class="status producao">Em breve</span>
+          <span class="status embreve">Em breve</span>
         </div>
         <div>
           <div class="name">Setembro</div>
@@ -267,7 +178,7 @@
       <a class="month-card is-soon" aria-disabled="true">
         <div class="top-row">
           <span class="num">10</span>
-          <span class="status producao">Em breve</span>
+          <span class="status embreve">Em breve</span>
         </div>
         <div>
           <div class="name">Outubro</div>
@@ -282,7 +193,7 @@
       <a class="month-card is-soon" aria-disabled="true">
         <div class="top-row">
           <span class="num">11</span>
-          <span class="status producao">Em breve</span>
+          <span class="status embreve">Em breve</span>
         </div>
         <div>
           <div class="name">Novembro</div>
@@ -297,7 +208,7 @@
       <a class="month-card is-soon" aria-disabled="true">
         <div class="top-row">
           <span class="num">12</span>
-          <span class="status producao">Em breve</span>
+          <span class="status embreve">Em breve</span>
         </div>
         <div>
           <div class="name">Dezembro</div>
