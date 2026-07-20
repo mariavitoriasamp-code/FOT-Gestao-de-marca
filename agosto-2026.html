@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feet Of Tomorrow — Ações de Agosto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --off-white: #E6E6DC;
+    --chumbo:    #3C3C3B;
+    --azul:      #556EE6;
+    --laranja:   #FF9132;
+    --neon:      #DCF573;
+    --line: rgba(60,60,59,0.16);
+    --muted: rgba(60,60,59,0.6);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--off-white);
+    color:var(--chumbo);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wordmark, .eyebrow, h1, h2, .label, .marker{ font-family:'Space Grotesk', sans-serif; }
+
+  .page{ max-width:960px; margin:0 auto; padding:40px 32px 60px; position:relative; }
+
+  .topbar{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;
+    font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--chumbo);
+    padding-bottom:14px; border-bottom:1px solid var(--line); font-weight:600;
+  }
+  .topbar span{ opacity:.8; }
+  .topbar .active{ border-bottom:1.5px solid var(--chumbo); padding-bottom:2px; opacity:1; }
+
+  .title-block{ padding:56px 0 40px; }
+  .kicker{ font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--azul); margin-bottom:10px; }
+  h1{ font-size:clamp(38px, 6vw, 58px); font-weight:700; line-height:1; text-transform:uppercase; margin:0; letter-spacing:.01em; }
+  h1 .accent{ color:var(--azul); }
+  .title-sub{ margin-top:16px; font-size:15px; color:var(--muted); max-width:480px; line-height:1.5; }
+
+  .section{ display:grid; grid-template-columns:220px 1fr; gap:32px; padding:34px 0; border-top:1px solid var(--line); }
+
+  details.week-toggle{ padding:20px 0; border-top:1px solid var(--line); }
+  details.week-toggle summary{
+    list-style:none; cursor:pointer; display:flex; align-items:center; gap:14px;
+    padding:2px 0; align-self:start;
+  }
+  details.week-toggle summary::-webkit-details-marker{ display:none; }
+  .week-marker-group{
+    display:flex; align-items:center; gap:8px; flex:none;
+  }
+  .week-marker-group .marker{ font-size:22px; line-height:1; }
+  .week-arrow{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:20px; height:20px; border-radius:50%; border:1.5px solid var(--chumbo);
+    font-size:10px; color:var(--chumbo); transition:transform .2s ease;
+    flex:none;
+  }
+  details.week-toggle[open] .week-arrow{ transform:rotate(180deg); }
+  .week-text-group{ display:flex; flex-direction:column; gap:2px; }
+  details.week-toggle .week-range-inline{ font-size:12px; color:var(--muted); }
+  details.week-toggle .section-inner{ margin-top:20px; }
+  .section .label-col{ padding-top:2px; }
+  .eyebrow{
+    font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:.02em;
+    border-bottom:1.5px solid var(--chumbo); display:inline-block; padding-bottom:4px; margin:0 0 10px;
+  }
+  .label-desc{ font-size:13px; color:var(--muted); line-height:1.5; max-width:200px; }
+
+  .tp-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:12px; }
+  .tp-card{ border-radius:10px; padding:16px 14px; display:flex; flex-direction:column; gap:14px; min-height:90px; justify-content:space-between; overflow:hidden; }
+  .tp-card .ic{ width:26px;height:26px; flex:none; }
+  .tp-card .ic svg{ width:100%; height:100%; }
+  .tp-card .name{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:14.5px; }
+  .tp-bottom{ display:flex; align-items:flex-end; justify-content:space-between; gap:8px; }
+  .tp-bottom .name{ flex:1 1 auto; min-width:0; }
+  .tp-card .count{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:22px; line-height:1; opacity:.9; flex:none; white-space:nowrap; }
+  .tp-split{ display:flex; gap:14px; flex:none; }
+  .tp-split .stat{ display:flex; flex-direction:column; align-items:flex-start; gap:2px; }
+  .tp-split .stat .count{ font-size:19px; }
+  .tp-split .stat .stat-label{ font-size:9px; text-transform:uppercase; letter-spacing:.03em; opacity:.75; }
+  .tp-chumbo .tp-bottom{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .tp-azul{ background:var(--azul); color:#fff; }
+  .tp-neon{ background:var(--neon); color:var(--chumbo); }
+  .tp-laranja{ background:var(--laranja); color:#fff; }
+  .tp-chumbo{ background:var(--chumbo); color:var(--off-white); }
+  .tp-outline{ background:transparent; color:var(--chumbo); border:1.5px solid var(--chumbo); }
+  .tp-outline-azul{ background:transparent; color:var(--azul); border:1.5px solid var(--azul); }
+
+  .week-head{ display:flex; align-items:baseline; gap:10px; margin-bottom:4px; }
+  .marker{ font-size:20px; line-height:1; }
+  .week-title{ font-weight:600; font-size:15px; text-transform:uppercase; letter-spacing:.02em; }
+  .week-range{ font-size:12px; color:var(--muted); }
+
+  /* ---------- POST CARDS (fotos + legenda) ---------- */
+  .post-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));
+    gap:14px;
+    margin-top:18px;
+  }
+  .post-card{
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+  }
+  .post-card .thumb{
+    width:100%;
+    aspect-ratio:3/4;
+    object-fit:cover;
+    display:block;
+    background:var(--line);
+  }
+  .post-card .thumb.empty{
+    display:flex; align-items:center; justify-content:center;
+    color:var(--muted); font-size:11px; text-align:center; padding:10px;
+  }
+  .thumb.email-thumb{
+    display:flex; align-items:center; justify-content:flex-start; gap:8px;
+    background:var(--azul); aspect-ratio:auto; height:44px; color:#fff; padding:0 12px;
+  }
+  .thumb.email-thumb svg{ width:18px; height:18px; color:#fff; flex:none; }
+  .thumb.email-thumb::after{ content:"E-MAIL"; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:12px; letter-spacing:.04em; text-transform:uppercase; }
+  .thumb.whatsapp-thumb{ display:flex; align-items:center; justify-content:center; background:var(--neon); aspect-ratio:3/4; color:var(--chumbo); }
+  .thumb.whatsapp-thumb svg{ width:34px; height:34px; }
+  .thumb.sms-thumb{ display:flex; align-items:center; justify-content:flex-start; gap:8px; background:var(--laranja); aspect-ratio:auto; height:44px; color:#fff; padding:0 12px; }
+  .thumb.sms-thumb svg{ width:18px; height:18px; flex:none; }
+  .thumb.sms-thumb::after{ content:"SMS"; font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:12px; letter-spacing:.04em; text-transform:uppercase; }
+  .status.standby{ background:transparent; color:var(--muted); border:1px dashed var(--line); }
+  .thumb.influencer-thumb{ display:flex; align-items:center; justify-content:center; background:transparent; border:1.5px dashed var(--chumbo); aspect-ratio:3/4; color:var(--chumbo); }
+  .thumb.influencer-thumb svg{ width:32px; height:32px; }
+    .thumb.thumb-square{ aspect-ratio:1/1; object-fit:cover; }
+  .wtpp-btn{
+    display:inline-block; margin-top:6px; padding:4px 10px; border-radius:999px;
+    background:var(--chumbo); color:var(--off-white); font-family:'Space Grotesk', sans-serif;
+    font-size:10.5px; font-weight:700; letter-spacing:.03em; text-transform:uppercase;
+  }
+
+  .post-body{ padding:10px 12px 12px; display:flex; flex-direction:column; gap:6px; flex:1; }
+  .post-date{ font-family:'Space Grotesk', sans-serif; font-size:11px; font-weight:600; color:var(--muted); }
+  .post-title{ font-family:'Space Grotesk', sans-serif; font-size:13.5px; font-weight:700; color:var(--chumbo); line-height:1.3; }
+  .post-title.placeholder{ color:var(--muted); font-style:italic; font-weight:600; }
+  .post-caption{ font-size:12.5px; line-height:1.4; color:var(--chumbo); }
+  .post-caption.placeholder{ color:var(--muted); font-style:italic; }
+  .post-tags{ display:flex; gap:6px; flex-wrap:wrap; margin-top:auto; padding-top:4px; }
+
+  .tag{
+    font-family:'Space Grotesk', sans-serif; font-size:9.5px; font-weight:600; letter-spacing:.02em;
+    text-transform:uppercase; padding:3px 8px; border-radius:999px; white-space:nowrap;
+  }
+  .tag.chumbo{ background:var(--chumbo); color:var(--off-white); }
+  .status{ font-size:9.5px; font-weight:600; letter-spacing:.02em; text-transform:uppercase; padding:3px 8px; border-radius:4px; }
+  .status.publicado{ background:var(--neon); color:var(--chumbo); }
+  .status.producao{ background:transparent; color:var(--muted); border:1px solid var(--line); }
+  .status.enviado{ background:var(--neon); color:var(--chumbo); }
+  .status.agendado{ background:transparent; color:var(--azul); border:1px solid var(--azul); }
+
+  /* other-channel simple list (email/whatsapp/sms/influ/trafego placeholders) */
+  .action-list{ list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .action{ display:flex; align-items:flex-start; gap:10px; font-size:14px; line-height:1.5; flex-wrap:wrap; }
+  .action .arrow{ flex:none; font-weight:600; color:var(--chumbo); opacity:.5; font-size:13px; margin-top:2px; }
+  .action .tag.azul{ background:var(--azul); color:#fff; }
+  .action .tag.neon{ background:var(--neon); color:var(--chumbo); }
+  .action .tag.laranja{ background:var(--laranja); color:#fff; }
+  .action .tag.outline{ background:transparent; color:var(--chumbo); border:1px solid var(--chumbo); }
+  .action .tag.outline-azul{ background:transparent; color:var(--azul); border:1px solid var(--azul); }
+  .action .txt{ flex:1 1 200px; min-width:150px; }
+  .action .txt.placeholder{ color:var(--muted); font-style:italic; }
+
+  .feed-section{ border-top:1px solid var(--line); }
+  .feed-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:3px;
+  }
+  .feed-cell{ aspect-ratio:3/4; overflow:hidden; background:var(--line); }
+  .feed-cell img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .feed-cell-empty{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+    background:var(--bg-card, #fff); border:1px dashed var(--line); color:var(--muted);
+    font-family:'Space Grotesk', sans-serif; text-align:center; padding:8px;
+  }
+  .feed-cell-empty span{ font-size:11px; }
+  .feed-cell-empty .feed-empty-label{ font-size:10px; font-style:italic; }
+
+  .footer{
+    margin-top:50px; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600;
+  }
+
+  
+  .caption-toggle{ margin-top:2px; }
+  .caption-toggle summary{
+    list-style:none; cursor:pointer; font-family:'Space Grotesk', sans-serif;
+    font-size:11px; font-weight:600; color:var(--azul); user-select:none;
+    display:inline-flex; align-items:center; gap:4px;
+  }
+  .caption-toggle summary::-webkit-details-marker{ display:none; }
+  .caption-toggle .cap-hide{ display:none; }
+  .caption-toggle[open] .cap-show{ display:none; }
+  .caption-toggle[open] .cap-hide{ display:inline; }
+  .caption-toggle .cap-arrow{
+    display:inline-block; font-size:9px; transition:transform .2s ease;
+  }
+  .caption-toggle[open] .cap-arrow{ transform:rotate(180deg); }
+  .caption-toggle .post-caption{ margin-top:8px; }
+
+  @media (max-width:640px){
+    .section{ grid-template-columns:1fr; gap:10px; }
+    .post-grid{ grid-template-columns:1fr; gap:10px; }
+  }
+
+  /* Mantém o título da semana ("SEMANA X" + intervalo de datas) fixo no topo
+     enquanto a seção está aberta e o usuário rola o conteúdo — principalmente no desktop,
+     onde o cabeçalho fica numa coluna separada do conteúdo. */
+  @media (min-width:641px){
+    details.week-toggle[open] summary.week-summary{
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--off-white);
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  @media print{ body{ background:#fff; } }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="topbar">
+    <span class="wordmark">FEET OF TOMORROW</span>
+    <span>RELATÓRIO DE MARCA</span>
+    <span class="active">AÇÕES · AGOSTO</span>
+    <span>2026</span>
+  </div>
+
+  <div class="title-block">
+    <div class="kicker">Resumo mensal · gestão de marca</div>
+    <h1>Ações de<br><span class="accent">Agosto</span></h1>
+  </div>
+
+  <!-- PONTOS DE CONTATO -->
+  <div class="section">
+    <div class="label-col">
+      <div class="eyebrow">Pontos de contato</div>
+      <div class="label-desc">Canais utilizados nas ações de comunicação da marca ao longo do mês.</div>
+    </div>
+    <div class="tp-grid">
+      <div class="tp-card tp-azul" data-count-tag="azul" data-count-text="E-mail">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></span>
+        <div class="tp-bottom"><span class="name">E-mail</span><span class="count">0</span></div>
+      </div>
+      <div class="tp-card tp-neon" data-count-tag="neon" data-count-text="WhatsApp">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4A8.5 8.5 0 0 1 4 12a8.4 8.4 0 0 1 14.6-5.7A8.3 8.3 0 0 1 21 11.5z"/><path d="M8 12l2 2 4-4"/></svg></span>
+        <div class="tp-bottom"><span class="name">WhatsApp</span><span class="count">0</span></div>
+      </div>
+      <div class="tp-card tp-laranja" data-count-tag="laranja" data-count-text="SMS">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M10 18h4"/></svg></span>
+        <div class="tp-bottom"><span class="name">SMS</span><span class="count">0</span></div>
+      </div>
+      <div class="tp-card tp-chumbo" data-count-tag="chumbo" data-count-text="Orgânico">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></span>
+        <div class="tp-bottom">
+          <span class="name">Posts e stories orgânicos</span>
+          <span class="tp-split">
+            <span class="stat"><span class="count" data-sub="posts">0</span><span class="stat-label">Posts</span></span>
+            <span class="stat"><span class="count" data-sub="stories">0</span><span class="stat-label">Stories</span></span>
+          </span>
+        </div>
+      </div>
+      <div class="tp-card tp-outline" data-count-tag="outline" data-count-text="Influenciador">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></span>
+        <div class="tp-bottom"><span class="name">Influenciadores</span><span class="count">0</span></div>
+      </div>
+      <div class="tp-card tp-outline-azul" data-count-tag="outline-azul" data-count-text="Tráfego">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
+        <div class="tp-bottom"><span class="name">Tráfego</span><span class="count">0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEMANAS -->
+  <details class="section week-toggle">
+    <summary class="week-summary"><span class="week-marker-group"><span class="marker">①</span><span class="week-arrow">▾</span></span><span class="week-text-group"><span class="week-title">Semana 1</span><span class="week-range-inline">01 — 09 de agosto</span></span></summary>
+    <div class="section-inner">
+    <div>
+      <div class="post-grid">
+        <div class="post-card">
+          <div class="thumb empty">Sem imagem<br>ainda</div>
+          <div class="post-body">
+            <div class="post-date">01/08 · Carrossel</div>
+            <div class="post-title">Bruk noturno 2</div>
+            <div class="post-tags"><span class="tag chumbo">Orgânico</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb whatsapp-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4A8.5 8.5 0 0 1 4 12a8.4 8.4 0 0 1 14.6-5.7A8.3 8.3 0 0 1 21 11.5z"/><path d="M8 12l2 2 4-4"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">01/08 · WhatsApp</div>
+            <div class="post-title">Wtpp | Pais - Entrega garantida</div>
+            <div class="post-tags"><span class="tag neon">WhatsApp</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb sms-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M10 18h4"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">02/08 · SMS</div>
+            <div class="post-title">SMS | Reforço Entrega garantida</div>
+            <div class="post-tags"><span class="tag laranja">SMS</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb email-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">03/08 · E-mail</div>
+            <div class="post-title">Email - Vendas - Bruk</div>
+            <div class="post-tags"><span class="tag azul">E-mail</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb whatsapp-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4A8.5 8.5 0 0 1 4 12a8.4 8.4 0 0 1 14.6-5.7A8.3 8.3 0 0 1 21 11.5z"/><path d="M8 12l2 2 4-4"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">03/08 · WhatsApp</div>
+            <div class="post-title">Wtpp | Pais - versão Bruk</div>
+            <div class="post-tags"><span class="tag neon">WhatsApp</span><span class="status standby">Stand by</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb email-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">05/08 · E-mail</div>
+            <div class="post-title">Email Branding - Transform Your Future - Legado</div>
+            <div class="post-tags"><span class="tag azul">E-mail</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb email-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">07/08 · E-mail</div>
+            <div class="post-title">Email - Vendas - Última chamada Dia dos Pais</div>
+            <div class="post-tags"><span class="tag azul">E-mail</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+      </div>
+      <ul class="action-list">
+        <li class="action"><span class="arrow">—▷</span><span class="tag outline-azul">Tráfego</span><span class="txt placeholder">[adicionar ação]</span></li>
+      </ul>
+    </div>
+  </div>
+  </details>
+
+  <details class="section week-toggle">
+    <summary class="week-summary"><span class="week-marker-group"><span class="marker">②</span><span class="week-arrow">▾</span></span><span class="week-text-group"><span class="week-title">Semana 2</span><span class="week-range-inline">10 — 16 de agosto</span></span></summary>
+    <div class="section-inner">
+    <div>
+      <div class="post-grid">
+        <div class="post-card">
+          <div class="thumb email-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">10/08 · E-mail</div>
+            <div class="post-title">Email - Vendas - Yuva Latte</div>
+            <div class="post-tags"><span class="tag azul">E-mail</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb influencer-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">10/08 · Collab</div>
+            <div class="post-title">Marina Buck</div>
+            <div class="post-tags"><span class="tag outline">Influenciador</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb influencer-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">12/08 · Collab</div>
+            <div class="post-title">Sidnei</div>
+            <div class="post-tags"><span class="tag outline">Influenciador</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb influencer-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">14/08 · Collab</div>
+            <div class="post-title">Athayogin</div>
+            <div class="post-tags"><span class="tag outline">Influenciador</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+      </div>
+      <ul class="action-list">
+        <li class="action"><span class="arrow">—▷</span><span class="tag outline-azul">Tráfego</span><span class="txt placeholder">[adicionar ação]</span></li>
+      </ul>
+    </div>
+  </div>
+  </details>
+
+  <details class="section week-toggle">
+    <summary class="week-summary"><span class="week-marker-group"><span class="marker">③</span><span class="week-arrow">▾</span></span><span class="week-text-group"><span class="week-title">Semana 3</span><span class="week-range-inline">17 — 23 de agosto</span></span></summary>
+    <div class="section-inner">
+    <div>
+      <div class="post-grid">
+        <div class="post-card">
+          <div class="thumb empty">Sem imagem<br>ainda</div>
+          <div class="post-body">
+            <div class="post-date">--/08 · Carrossel</div>
+            <div class="post-caption placeholder">Tema e legenda a definir.</div>
+            <div class="post-tags"><span class="tag chumbo">Orgânico</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb email-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">--/08 · E-mail</div>
+            <div class="post-title placeholder">[Nome da campanha de e-mail]</div>
+            <div class="post-tags"><span class="tag azul">E-mail</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb whatsapp-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4A8.5 8.5 0 0 1 4 12a8.4 8.4 0 0 1 14.6-5.7A8.3 8.3 0 0 1 21 11.5z"/><path d="M8 12l2 2 4-4"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">--/08 · WhatsApp</div>
+            <div class="post-title placeholder">[Nome do disparo de WhatsApp]</div>
+            <div class="post-tags"><span class="tag neon">WhatsApp</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb sms-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M10 18h4"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">--/08 · SMS</div>
+            <div class="post-title placeholder">[Nome do disparo de SMS]</div>
+            <div class="post-tags"><span class="tag laranja">SMS</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+      </div>
+      <ul class="action-list">
+        <li class="action"><span class="arrow">—▷</span><span class="tag outline-azul">Tráfego</span><span class="txt placeholder">[adicionar ação]</span></li>
+      </ul>
+    </div>
+  </div>
+  </details>
+
+  <details class="section week-toggle">
+    <summary class="week-summary"><span class="week-marker-group"><span class="marker">④</span><span class="week-arrow">▾</span></span><span class="week-text-group"><span class="week-title">Semana 4</span><span class="week-range-inline">24 — 30 de agosto</span></span></summary>
+    <div class="section-inner">
+    <div>
+      <div class="post-grid">
+        <div class="post-card">
+          <div class="thumb empty">Sem imagem<br>ainda</div>
+          <div class="post-body">
+            <div class="post-date">--/08 · Carrossel</div>
+            <div class="post-caption placeholder">Tema e legenda a definir.</div>
+            <div class="post-tags"><span class="tag chumbo">Orgânico</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb email-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">--/08 · E-mail</div>
+            <div class="post-title placeholder">[Nome da campanha de e-mail]</div>
+            <div class="post-tags"><span class="tag azul">E-mail</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+        <div class="post-card">
+          <div class="thumb whatsapp-thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4A8.5 8.5 0 0 1 4 12a8.4 8.4 0 0 1 14.6-5.7A8.3 8.3 0 0 1 21 11.5z"/><path d="M8 12l2 2 4-4"/></svg></div>
+          <div class="post-body">
+            <div class="post-date">--/08 · WhatsApp</div>
+            <div class="post-title placeholder">[Nome do disparo de WhatsApp]</div>
+            <div class="post-tags"><span class="tag neon">WhatsApp</span><span class="status producao">Em produção</span></div>
+          </div>
+        </div>
+      </div>
+      <ul class="action-list">
+        <li class="action"><span class="arrow">—▷</span><span class="tag outline-azul">Tráfego</span><span class="txt placeholder">[adicionar ação]</span></li>
+      </ul>
+    </div>
+  </div>
+  </details>
+  <div class="section feed-section">
+    <div class="label-col">
+      <div class="eyebrow">Feed</div>
+      <div class="label-desc">Prévia de como os posts orgânicos aparecem no perfil — mais recentes no topo.</div>
+    </div>
+    <div class="feed-grid">
+      <div class="feed-cell feed-cell-empty"><span>30/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>28/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>24/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>22/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>20/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>18/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>15/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>13/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>11/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>08/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>06/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>04/08</span><span class="feed-empty-label">Sem foto ainda</span></div><div class="feed-cell feed-cell-empty"><span>03/08</span><span class="feed-empty-label">Sem foto ainda</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="wordmark">FEET OF TOMORROW · RELATÓRIO INTERNO</span>
+    <span>Desenvolvido por Maria Vitória S.C</span>
+  </div>
+
+</div>
+<script>
+  document.querySelectorAll('.tp-card[data-count-tag]').forEach(function(card){
+    var cls = card.getAttribute('data-count-tag');
+    var text = card.getAttribute('data-count-text');
+    var els = document.querySelectorAll('.post-grid .tag.' + cls);
+
+    if (cls === 'chumbo') {
+      var posts = 0, stories = 0;
+      els.forEach(function(el){
+        if (el.textContent.trim() !== text) return;
+        var body = el.closest('.post-body');
+        var dateEl = body ? body.querySelector('.post-date') : null;
+        var isStory = dateEl && dateEl.textContent.indexOf('Story') !== -1;
+        if (isStory) { stories++; } else { posts++; }
+      });
+      var postsEl = card.querySelector('[data-sub="posts"]');
+      var storiesEl = card.querySelector('[data-sub="stories"]');
+      if (postsEl) postsEl.textContent = posts;
+      if (storiesEl) storiesEl.textContent = stories;
+      return;
+    }
+
+    var count = 0;
+    els.forEach(function(el){
+      if (el.textContent.trim() === text) count++;
+    });
+    var countEl = card.querySelector('.count');
+    if (countEl) countEl.textContent = count;
+  });
+</script>
+</body>
+</html>
